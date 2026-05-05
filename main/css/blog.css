@@ -1,4 +1,3 @@
-/* 全局重置 */
 * {
   margin: 0;
   padding: 0;
@@ -8,157 +7,158 @@
 
 body {
   height: 100vh;
-  overflow: hidden; /* 整个页面不滚动，只有中间区域滚动 */
+  overflow: hidden;
+  background: #f8fafc;
 }
 
-/* 顶部导航栏 */
 .blog-header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 60px;
-  background: white;
-  border-bottom: 1px solid #eee;
+  right: 0;
+  height: 100px;
+  background: rgba(128, 0, 128, 0.459);
+  border-bottom: 2px solid #e2e8f0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  z-index: 100;
+  padding: 0 18px;
+  z-index: 10;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.187);
 }
 
 .logout-btn {
-  padding: 6px 16px;
-  border: 1px solid #333;
-  background: white;
-  border-radius: 4px;
+  padding: 6px 12px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  border-radius: 6px;
   cursor: pointer;
+  margin-left: 8px;
 }
 
-/* 主容器 */
 .main-container {
   display: flex;
-  margin-top: 60px; /* 给顶部导航栏留出空间 */
-  height: calc(100vh - 60px);
+  height: 100%;
 }
 
-/* 左侧边栏 */
 .sidebar {
-  width: 200px;
-  border-right: 1px solid #eee;
-  padding: 20px;
-  background: white;
-  flex-shrink: 0; /* 防止被压缩 */
-}
+  width: 330px;
+  background: rgba(128, 128, 128, 0.484);
+  border-right: 3px solid #e2e8f0;
+  padding: 0px;
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 100px);
 
-.avatar-box {
-  width: 80px;
-  height: 80px;
-  border: 1px solid #333;
-  margin: 0 auto 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.29); 
 }
 
-.username {
-  text-align: center;
-  font-size: 18px;
-  margin-bottom: 8px;
+.img-me {
+  width: 200px;
+  height: 400px;
+  object-fit: contain;
+  transform-origin: bottom left;
+}
+
+.info-tag {
+  background: yellowgreen;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 20px;
+  margin: 6px 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  display: block;
+  width: 300px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  cursor: default;
 }
 
 .bio {
-  text-align: center;
-  color: #666;
+  color: #fff;
+  margin-top: 20px;
+  line-height: 30px;
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+.blog-feed {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+.post-editor {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px;
   margin-bottom: 16px;
 }
 
-.hobbies p {
-  margin: 4px 0;
+.post-editor textarea,.post-editor input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px;
 }
 
-/* 中间博客流 */
-.blog-feed {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto; /* 关键：只有这里可以滚动 */
+.hidden {
+  display: none
 }
 
-/* 博客卡片样式 */
 .blog-card {
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 20px;
-  max-width: 600px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  max-width: 720px;
+  margin-bottom: 14px
 }
 
 .card-header {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #64748b
 }
 
-.card-avatar {
-  width: 32px;
-  height: 32px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-}
-
-.blog-content {
-  margin-bottom: 12px;
-  line-height: 1.5;
+.post-image {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 8px 0
 }
 
 .card-stats {
   display: flex;
-  gap: 16px;
-  color: #666;
-  margin-bottom: 16px;
+  gap: 14px;
+  margin: 10px 0
 }
 
-/* 评论区 */
-.comments-section {
-  border-top: 1px solid #eee;
-  padding-top: 12px;
+.like-btn {
+  border: none;
+  background: #eff6ff;
+  padding: 4px 10px;
+  border-radius: 15px;
+  cursor: pointer
 }
 
-.comments-title {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.comment-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 6px 0;
-}
-
-.comment-input {
+.comment-input-row {
   display: flex;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 8px
 }
 
-.comment-input input {
+.comment-input-row input {
   flex: 1;
-  padding: 6px 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.comment-submit {
-  padding: 6px 12px;
-  background: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 7px
 }

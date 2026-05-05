@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,9 @@
     <div class="login-container">
         <div class="illustration-section">
             <h1 class="brand-title">Hongyu Jin's Blog</h1>
-            <p class="brand-subtitle">I use a b c d e f g to build this</p >
+            <p class="brand-subtitle">Welcome to my personal community</p>
+            <!--<div class="illustration"></div>-->
+
             <div class="illustration">
                 <svg width="200" height="180" viewBox="0 0 200 180" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="30" cy="30" r="6" fill="#f8c0b0" opacity="0.8" />
@@ -44,32 +46,37 @@
                         <stop offset="100%" style="stop-color:#e8a090;stop-opacity:1" />
                         </linearGradient>
                     </defs>
-                    </svg></div>
+                </svg>
+            </div>
         </div>
-
+ 
         <div class="form-section">
             <h2 class="form-title">Log In</h2>
-            <p class="form-subtitle"></p >
+ 
+            <div class="form-group">
+                <input id="username" type="text" class="form-input" placeholder="Account">
+            </div>
 
             <div class="form-group">
-                <input type="text" class="form-input" placeholder="Phone Number">
+                <input id="password" type="password" class="form-input" placeholder="Password">
             </div>
 
-            <div class="form-group password-group">
-                <input type="text" class="form-input" placeholder="Verification Code">
-                <button class="get-code-btn">get the code</button>
-            </div>
+            <button class="login-btn" id="login-btn">Log In</button>
 
-            <button class="login-btn">Log In</button>
+            <label class="agreement-row">
+                <input id="agreement" type="checkbox">
+                <span>I have read and agree to the <a target="_blank" href="main/html/blog.html">User Agreement</a> and <a target="_blank" href="https://smart-cat-1.github.io/Personal-Portfolio/">Privacy Policy</a></span>
+            </label>
 
-            <p class="form-footer-text">
-                I have read and agree to the <a target="_blank" href="main/html/blog.html">User Agreement</a> and <a target="_blank" href="https://smart-cat-1.github.io/Personal-Portfolio/">Privacy Policy</a>
-            </p >
+            <label class="remember-row">
+                <input id="remember" type="checkbox">
+                <span>Remember this account for 7 days"</span>
+            </label>
 
-            <button class="register-link-btn">Register</button>
-            <div><p class="or-p">or</p></div>
-            <button class="guest-link-btn">Guest Access</button>
-        </div>
+            <button class="register-link-btn" id="go-register">Register</button>
+             <div><p class="or-p">or</p></div>
+            <button class="guest-link-btn" id="guest-login">Guest Access</button>
+         </div>
     </div>
     <script src="main/js/index.js"></script>
 </body>
