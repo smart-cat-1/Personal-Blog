@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Hongyu Jin's Blog</title>
+  <link rel="stylesheet" href="../css/blog.css">
+</head>
+<body>
+  <!-- 顶部导航栏（固定不动） -->
+  <header class="blog-header">
+    <h1 class="blog-title">Hongyu Jin's Blog</h1>
+    <button class="logout-btn">Log out</button>
+  </header>
+
+  <div class="main-container">
+    <!-- 左侧边栏（固定不动） -->
+    <aside class="sidebar">
+      <div class="avatar-box">头像</div>
+      <h2 class="username">Hongyu Jin</h2>
+      <p class="bio">全栈工程师</p >
+      <div class="hobbies">
+        <p>❤️ 游戏</p >
+        <p>🎬 电影</p >
+        <p>📚 阅读</p >
+      </div>
+    </aside>
+
+    <!-- 中间博客流（可滚动） -->
+    <main class="blog-feed">
+      <!-- 示例博客卡片 -->
+      <article class="blog-card">
+        <div class="card-header">
+          <div class="card-avatar">头像</div>
+          <span class="card-username">Hongyu Jin</span>
+        </div>
+        <p class="blog-content">你好，我入驻这里啦！</p >
+        <div class="card-stats">
+          <span class="like-count">👍 210</span>
+          <span class="heart-count">❤️ 16</span>
+          <span class="post-date">2026年5月5日</span>
+        </div>
+
+        <!-- 评论区 -->
+        <div class="comments-section">
+          <p class="comments-title">评论</p >
+          <div class="comment-item">
+            <input type="radio" name="comment">
+            <span>你好！</span>
+          </div>
+          <div class="comment-item">
+            <input type="radio" name="comment">
+            <span>欢迎欢迎！</span>
+          </div>
+          <!-- 写评论的输入框 -->
+          <div class="comment-input">
+            <input type="text" placeholder="写下你的评论...">
+            <button class="comment-submit">发送</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- 未来你可以在这里继续添加更多博客卡片 -->
+      <!-- <article class="blog-card">...</article> -->
+    </main>
+  </div>
+</body>
+</html>
