@@ -47,7 +47,7 @@ document.getElementById('register-submit').addEventListener('click', () => {
   message2.textContent = 'Creation successful, returning to the login page...';
   setTimeout(() => {
     window.location.href = '../../index.html';
-  }, 3000);
+  }, 1000);
 });
 
 document.getElementById('back-login').addEventListener('click', () => {

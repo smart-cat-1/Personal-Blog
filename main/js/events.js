@@ -161,8 +161,26 @@ if (logoutButton) {
   });
 }
 
+/**
+ * Mobile sidebar overlays
+ */
+const rightSidebarBtn = document.getElementById('right-sidebar-btn');
+const rightSidebarOverlay = document.getElementById('right-sidebar-overlay');
+
+if (rightSidebarBtn && rightSidebarOverlay) {
+  rightSidebarBtn.addEventListener('click', () => {
+    rightSidebarOverlay.classList.remove('hidden');
+    renderProfilePanelMobile();
+  });
+
+  rightSidebarOverlay.addEventListener('click', (e) => {
+    if (e.target === rightSidebarOverlay || e.target.classList.contains('overlay-backdrop')) {
+      rightSidebarOverlay.classList.add('hidden');
+    }
+  });
+}
+
 // 初始化页面
-renderProfilePanel();
 renderPosts();
 
 const viewerClose = document.getElementById('close-image-viewer');

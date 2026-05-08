@@ -7,27 +7,18 @@ const defaultPosts = [
   {
     id: 1,
     author: 'Hongyu Jin',
-    content: 'Hello, I have arrived here!',
+    content: 'Hello, everyone. Welcome to my blog!',
     images: [],
-    date: '2026-05-05',
-    likes: {},
-    comments: ['Welcome!']
-  },
-  {
-    id: 2,
-    author: 'Hongyu Jin',
-    content: 'Today sharing a landscape picture.',
-    images: ['https://picsum.photos/seed/blog/600/300'],
-    date: '2026-05-04',
+    date: '2026-05-01',
     likes: {},
     comments: []
   },
   {
-    id: 3,
+    id: 2,
     author: 'Hongyu Jin',
-    content: 'Welcome to this community!',
-    images: [],
-    date: '2026-05-07',
+    content: 'I made a personal portfolio, but rather than a portfolio, it feels more like a casual \'self-introduction\' style website. I designed an attractive layout and interesting details. Oh, and I also created a light and dark mode toggle button, right at the top right corner. Anyway, if you want to get to know me better, feel free to take a look. You can visit my code repository at "https://github.com/smart-cat-1/Personal-Portfolio" or go directly to the website at "https://smart-cat-1.github.io/Personal-Portfolio/". I think you probably need to copy the website into your browser\'s search bar.',
+    images: ['../../assets/images/Screenshot111.png'],
+    date: '2026-05-04',
     likes: {},
     comments: []
   }

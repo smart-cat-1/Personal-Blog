@@ -25,26 +25,17 @@ function showImageViewer(src) {
 }
 
 /**
- * 隐藏图片全屏预览
+ * 渲染用户个人资料面板（移动版）
  */
-function hideImageViewer() {
-  const overlay = document.getElementById('image-viewer');
-  if (!overlay) return;
-  overlay.classList.add('hidden');
-}
-
-/**
- * 渲染用户个人资料面板
- */
-function renderProfilePanel() {
-  const profileUsername = document.getElementById('profile-username');
-  const profileDisplayName = document.getElementById('profile-display-name');
-  const profileRole = document.getElementById('profile-role');
-  const profileNameInput = document.getElementById('profile-name');
-  const saveNameBtn = document.getElementById('save-name');
-  const profileAvatar = document.getElementById('profile-avatar');
-  const avatarUploadBtn = document.getElementById('avatar-upload-btn');
-  const avatarInput = document.getElementById('avatar-input');
+function renderProfilePanelMobile() {
+  const profileUsername = document.getElementById('profile-username-mobile');
+  const profileDisplayName = document.getElementById('profile-display-name-mobile');
+  const profileRole = document.getElementById('profile-role-mobile');
+  const profileNameInput = document.getElementById('profile-name-mobile');
+  const saveNameBtn = document.getElementById('save-name-mobile');
+  const profileAvatar = document.getElementById('profile-avatar-mobile');
+  const avatarUploadBtn = document.getElementById('avatar-upload-btn-mobile');
+  const avatarInput = document.getElementById('avatar-input-mobile');
 
   const displayName = getCurrentDisplayName();
   let roleText = '';
@@ -84,7 +75,7 @@ function renderProfilePanel() {
       const newName = profileNameInput.value.trim();
       if (newName && newName.length >= 2) {
         updateDisplayName(newName);
-        renderProfilePanel();
+        renderProfilePanelMobile();
         renderPosts();
       } else {
         alert('Display name must be at least 2 characters long.');
@@ -98,17 +89,16 @@ function renderProfilePanel() {
 
     avatarInput.addEventListener('change', (event) => {
       const file = event.target.files?.[0];
-      if (!file) {
-        return;
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const base64 = e.target.result;
+          updateAvatar(base64);
+          renderProfilePanelMobile();
+          renderPosts();
+        };
+        reader.readAsDataURL(file);
       }
-      readFilesAsDataURLs([file]).then(([avatarUrl]) => {
-        updateAvatar(avatarUrl);
-        renderProfilePanel();
-      }).catch(() => {
-        alert('Unable to upload avatar. Please try again.');
-      }).finally(() => {
-        event.target.value = '';
-      });
     });
   }
 }

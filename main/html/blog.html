@@ -11,22 +11,13 @@
 <body>
   <header class="blog-header">
     <h1 class="blog-title">Welcome to this community!</h1>
-    <div>
+    <div class="header-buttons">
+      <button id="right-sidebar-btn" class="sidebar-btn">Settings</button>
       <button id="logout" class="logout-btn">Log Out</button>
     </div>
   </header>
 
   <div class="main-container">
-    <aside class="sidebar left-sidebar">
-      <img class="img-me" src="../../assets/images/me.jpg" alt="Avatar">
-      <button class="info-tag">Name: Hongyu Jin</button>
-      <button class="info-tag">Full-Stack Engineer</button>
-      <div>...</div>
-      <button class="info-tag1">Game Enthusiast</button>
-      <button class="info-tag1">Book Lover</button>
-      <button class="info-tag1">Movie Fan</button>
-    </aside>
-
     <main class="blog-feed">
       <section id="post-editor" class="post-editor hidden">
         <textarea id="new-post-text" placeholder="Publish a new post..."></textarea>
@@ -39,32 +30,38 @@
       </section>
       <div id="posts"></div>
     </main>
-
-    <aside class="sidebar right-sidebar">
-      <div class="user-profile">
-        <div class="profile-header">User Profile</div>
-        <img id="profile-avatar" class="profile-avatar" src="../../assets/images/default-avatar.jpg" alt="Profile avatar">
-        <div class="profile-item">
-          <label>Display Name</label>
-          <input id="profile-name" type="text" placeholder="input username" class="profile-input">
-          <button id="save-name" class="profile-btn">Save</button>
-        </div>
-        <div class="avatar-upload-container">
-          <button id="avatar-upload-btn" class="avatar-upload-btn" type="button">Upload Avatar</button>
-          <input id="avatar-input" type="file" accept="image/*" hidden>
-        </div>
-        <div class="profile-info">
-          <p id="profile-username"><span></span></p>
-          <p id="profile-display-name"><span></span></p>
-          <p id="profile-role"><span></span></p>
-        </div>
-      </div>
-    </aside>
   </div>
 
   <div id="image-viewer" class="image-viewer hidden">
     <div class="viewer-backdrop"></div>
     <img id="image-viewer-img" class="viewer-img" alt="Preview">
+  </div>
+
+  <!-- Mobile overlays -->
+  <div id="right-sidebar-overlay" class="sidebar-overlay hidden">
+    <div class="overlay-backdrop"></div>
+    <div class="overlay-content">
+      <aside class="sidebar right-sidebar">
+        <div class="user-profile">
+          <div class="profile-header">User Profile</div>
+          <img id="profile-avatar-mobile" class="profile-avatar" src="../../assets/images/default-avatar.jpg" alt="Profile avatar">
+          <div class="profile-item">
+            <label>Display Name</label>
+            <input id="profile-name-mobile" type="text" placeholder="input username" class="profile-input">
+            <button id="save-name-mobile" class="profile-btn">Save</button>
+          </div>
+          <div class="avatar-upload-container">
+            <button id="avatar-upload-btn-mobile" class="avatar-upload-btn" type="button">Upload Avatar</button>
+            <input id="avatar-input-mobile" type="file" accept="image/*" hidden>
+          </div>
+          <div class="profile-info">
+            <p id="profile-username-mobile"><span></span></p>
+            <p id="profile-display-name-mobile"><span></span></p>
+            <p id="profile-role-mobile"><span></span></p>
+          </div>
+        </div>
+      </aside>
+    </div>
   </div>
 
   <script src="../js/config.js"></script>
