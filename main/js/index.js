@@ -1,7 +1,6 @@
 const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 const agreement = document.getElementById('agreement');
-const remember = document.getElementById('remember');
 const errorText = document.getElementById('login-error');
 
 const STORAGE_KEY = 'blog_users';
@@ -10,7 +9,7 @@ const SESSION_KEY = 'blog_session';
 function getUsers() {
   const preset = [{ username: 'jhy1750883993', password: 'Jhy405948689', role: 'admin', displayName: 'Hongyu Jin' }];
   const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-  return [...preset, ...saved];
+  return [...preset, ...saved].filter(u => u && u.username && u.password);
 }
 
 function saveSession(user, days = 0) {
@@ -25,7 +24,7 @@ function autoLogin() {
     localStorage.removeItem(SESSION_KEY);
     return;
   }
-  if (session.expiresAt) {
+  if (session.user && session.user.username) {
     window.location.href = 'main/html/blog.html';
   }
 }
@@ -35,18 +34,31 @@ autoLogin();
 document.getElementById('login-btn').addEventListener('click', () => {
   errorText.textContent = '';
   if (!agreement.checked) {
-    errorText.textContent = '请先同意用户协议和隐私政策';
+    errorText.textContent = 'Please first agree to the User Agreement and Privacy Policy';
     return;
   }
+  
   const username = usernameInput.value.trim();
   const password = passwordInput.value;
-  const user = getUsers().find((u) => u.username === username && u.password === password);
-  if (!user) {
-    errorText.textContent = '请输入正确的账号或密码';
+  
+  if (!username || !password) {
+    errorText.textContent = 'Please enter username and password';
     return;
   }
 
-  saveSession({ ...user, canOperate: true }, remember.checked ? 7 : 0);
+  console.log('Registered User:', getUsers());
+  console.log('Input username:', username, 'Input password:', password);
+
+  const user = getUsers().find((u) => u.username === username && u.password === password);
+  
+  if (!user) {
+    errorText.textContent = 'Please enter the correct account or password';
+    console.log('Login failed: user does not exist or password is incorrect');
+    return;
+  }
+
+  console.log('Login successful, user information:', user);
+  saveSession(user, 0);
   window.location.href = 'main/html/blog.html';
 });
 
@@ -55,6 +67,6 @@ document.getElementById('go-register').addEventListener('click', () => {
 });
 
 document.getElementById('guest-login').addEventListener('click', () => {
-  saveSession({ username: 'guest', role: 'guest', displayName: 'Guest', canOperate: false }, 0);
+  saveSession({ username: 'guest', role: 'guest', displayName: 'Guest' }, 0);
   window.location.href = 'main/html/blog.html';
 });

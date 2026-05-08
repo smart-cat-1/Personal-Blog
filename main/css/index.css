@@ -115,6 +115,14 @@ body {
     width: 100%;
 }
 
+.error-text {
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
 @media (max-width:900px) {
     .login-container {
         flex-direction: column;
